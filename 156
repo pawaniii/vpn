@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple VPN Proxy</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        input { width: 60%; padding: 8px; margin: 10px; }
+        button { padding: 8px 15px; cursor: pointer; }
+        iframe { width: 100%; height: 500px; border: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Simple Web Proxy</h2>
+    <input type="text" id="urlInput" placeholder="Enter website URL (e.g., https://example.com)">
+    <button onclick="loadSite()">Browse</button>
+    <iframe id="proxyFrame"></iframe>
+
+    <script>
+        function loadSite() {
+            let url = document.getElementById("urlInput").value;
+            if (!url.startsWith("http")) {
+                url = "https://" + url;
+            }
+            document.getElementById("proxyFrame").src = url;
+        }
+    </script>
+</body>
+</html>
